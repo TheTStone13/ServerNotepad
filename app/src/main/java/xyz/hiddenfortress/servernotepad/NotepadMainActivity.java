@@ -113,7 +113,7 @@ public class NotepadMainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "174.45.92.69/writeFile.php?f=testDir/NewFiles/notes.txt&d=" + s;
         Toast.makeText(this, url, Toast.LENGTH_LONG).show();
-        StringRequest strRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest strRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(NotepadMainActivity.this, response, Toast.LENGTH_SHORT).show();
@@ -125,7 +125,7 @@ public class NotepadMainActivity extends AppCompatActivity {
             }
         });
         //this.deleteFile("saveNotes.txt");
-        //queue.add(strRequest);
+        queue.add(strRequest);
         //reWr.replaceFile(this, "", "saveNotes.txt");
     }
 
